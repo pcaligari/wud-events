@@ -58,4 +58,15 @@ class ClaimController extends Controller
         // return
         return json_encode($retVal);
     }
+    
+    public function destroy($id) {
+        // Find the claim
+        $claim = \App\Claim::findOrFail($id);
+        // Delete it - DB integrity kept by constraints on table
+        $claim->delete();
+        return json_encode([
+            'success' => true,
+            'message' => 'Claim Deleted'
+        ]);
+    }
 }
