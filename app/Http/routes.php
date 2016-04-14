@@ -26,3 +26,8 @@ Route::get('/status', function () {
     
     return json_encode($stati);
 });
+
+/**
+ * Stub routes for restful claim management
+ */
+Route::resource('claim','ClaimController');
