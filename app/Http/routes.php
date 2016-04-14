@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/**
+ * My first route - simply return JSON object containing the statuses
+ * stored in the DB.  If this were any more complicated then the code
+ * would go into a controller.
+ */
+Route::get('/status', function () {
+    $stati = App\Status::orderBy('seq','asc')->get();
+    
+    return json_encode($stati);
+});
